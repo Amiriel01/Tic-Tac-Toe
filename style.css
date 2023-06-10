@@ -25,16 +25,19 @@ body {
 }
 
 .gameboard {
+    background-color: blueviolet;
     display: grid;
     grid-template-columns: repeat(3,10rem);
     grid-template-rows: repeat(3,10rem);
     width: 30rem;
     border: 2px solid black;
     margin: auto;
+    padding: 2rem
 }
 
 .square {
     border: 2px solid black;
+    background-color: white;
 }
 
 #rules {
