@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#title {
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center ;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+
+#info {
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3,10rem);
+    grid-template-rows: repeat(3,10rem);
+    width: 30rem;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.square {
+    border: 2px solid black;
+}
+
+#rules {
+    font-size: 36px;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+#message{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+}
