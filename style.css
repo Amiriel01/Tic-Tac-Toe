@@ -18,12 +18,6 @@ body {
     padding-bottom: 1rem;
 }
 
-#info {
-    font-size: 36px;
-    text-align: center;
-    padding-bottom: 2rem;
-}
-
 .gameboard {
     background-color: blueviolet;
     display: grid;
@@ -46,7 +40,7 @@ body {
 #rules {
     font-size: 36px;
     text-align: center;
-    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 #message{
@@ -59,4 +53,8 @@ body {
 #button {
     display: flex;
     justify-content: center;
+}
+
+.hidden {
+    display: none;
 }

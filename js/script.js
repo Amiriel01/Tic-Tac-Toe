@@ -8,10 +8,12 @@ let gameboard = [
 //player variable//
 let player = 1;
 
+
 //Access DOM elements//
 let squares = document.querySelectorAll(".square");
 let playAgain = document.querySelector("#restart");
 let message = document.querySelector("#message");
+let hidden = document.querySelector(".hidden-message");
 
 //add event listener for each square//
 //index points to a number//
@@ -65,6 +67,8 @@ function writeMarker() {
     }
 }
 
+
+
 //function will check the results of the gameboard//
 function winner() {
     //this will check rows and columns//
@@ -74,9 +78,11 @@ function winner() {
         if (rowSum == 3 || columnSum == 3) {
             message.innerText = "Player One Wins!";
             //console.log("Player One Wins!")
+            return
         } else if (rowSum == -3 || columnSum == -3) {
             message.innerText = "Player Two Wins!";
             //console.log("Player Two Wins!")
+            return
         }
     }
     //this will check diagonals//
@@ -85,10 +91,16 @@ function winner() {
     if (diagonalSumOne == 3 || diagonalSumTwo == 3) {
         message.innerText = "Player One Wins!";
         //console.log("Player One Wins!")
+        return
     } else if (diagonalSumOne == -3 || diagonalSumTwo == -3) {
         message.innerText = "Player Two Wins!";
         //console.log("Player Two Wins!")
-    }
+        return
+    } 
+    
+   /* if (rowSum || columnSum == 9 || -9) {
+        message.innerText = "It's a Tie Game!"
+    }*/
 }
 
 
