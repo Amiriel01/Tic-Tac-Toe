@@ -67,8 +67,6 @@ function writeMarker() {
     }
 }
 
-
-
 //function will check the results of the gameboard//
 function winner() {
     //this will check rows and columns//
@@ -96,14 +94,12 @@ function winner() {
         message.innerText = "Player Two Wins!";
         //console.log("Player Two Wins!")
         return
-    } 
-    
-   /* if (rowSum || columnSum == 9 || -9) {
-        message.innerText = "It's a Tie Game!"
-    }*/
+    }
 }
 
-
+function toggleHidden() {
+    
+}
 
 //refreshes page to start a new game//
 //used JQuery to practice//
