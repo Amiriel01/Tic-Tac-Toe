@@ -13,6 +13,8 @@ let player = 1;
 let squares = document.querySelectorAll(".square");
 let playAgain = document.querySelector("#restart");
 let message = document.querySelector("#message");
+let firstPage = document.querySelector(".first-page");
+let messageAndButton = document.querySelector(".message-button");
 
 //add event listener for each square//
 //index points to a number//
@@ -44,6 +46,9 @@ function playerMarker(index) {
         //console.log(gameboard);//
         //this function calls player marker function to be written on screen//
         writeMarker();
+        if (winner() === true) {
+            toggleHidden();
+        }
     }
 }
 
@@ -62,7 +67,6 @@ function writeMarker() {
                 squares[(row * 3) + column].innerText = "O";
             }
         //this function calls winner function to be written on the screen//
-        winner();
     }
 }
 
@@ -75,37 +79,52 @@ function winner() {
         if (rowSum == 3 || columnSum == 3) {
             message.innerText = "X Wins!";
             //console.log("Player One Wins!")
-            return
+            return true;
         } else if (rowSum == -3 || columnSum == -3) {
             message.innerText = "O Wins!";
             //console.log("Player Two Wins!")
-            return
+            return true;
         }
     }
     //this will check diagonals//
     let diagonalSumOne = gameboard[0][0] + gameboard[1][1] + gameboard[2][2];
     let diagonalSumTwo = gameboard[0][2] + gameboard[1][1] + gameboard[2][0];
+    let positiveSum = 0;
+    let negativeSum= 0;
+    gameboard.forEach(row => {
+        row.forEach(column => {
+            if (column > 0) {
+                positiveSum++;
+            } else if (column < 0) {
+                negativeSum++;
+            }
+        })
+    });
+    //console.log(positiveSum, negativeSum);
+
     if (diagonalSumOne == 3 || diagonalSumTwo == 3) {
         message.innerText = "X Wins!";
         //console.log("Player One Wins!")
-        return
+        return true;
     } else if (diagonalSumOne == -3 || diagonalSumTwo == -3) {
         message.innerText = "O Wins!";
         //console.log("Player Two Wins!")
-        return
+        return true;
         //It is not printing tie message???"
-    } else if (([0,0] == 1 || [0,0] == -1) && ([0,1] == 1 || [0,1] == -1) && ([0,2] == 1 || [0,2] == -1) && ([1,0] == 1 || [1,0] == -1) && ([2,0] == 1 || [2,0] == -1) && ([1,1] == 1 || [1,1] == -1) && ([1,2] == 1 || [1,2] == -1) && ([2,1] == 1 || [2,1] == -1) && ([2,2] == 1 || [2,2] == -1)) {
+    } else if (positiveSum === 5 && negativeSum === 4) {
         message.innerText = "It's a Tie!";
-        return
+        return true;
     }
 }
 
 //css set .hidden//
-//hidden is toggling back and forth each time a button is clicked but never showing the message or button????//
-/*function toggleHidden() {
-    message.classList.toggle("hidden");
-    playAgain.classList.toggle("hidden");
-}*/
+//hidden is toggling back and forth each time a square is clicked but never showing the message or play again button????//
+function toggleHidden() {
+    //message.classList.toggle("hidden");
+    //playAgain.classList.toggle("hidden");
+    messageAndButton.classList.toggle("hidden");
+    firstPage.classList.toggle("hidden");
+}
 
 //refreshes page to start a new game//
 //used JQuery to practice//
