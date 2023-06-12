@@ -4,7 +4,7 @@ Work in Progress
 
 **Objective**
 
-I created a Tic-Tac-Toe game with JavaScript, HTML, and CSS. The game is meant to be played by two players.
+I created a Tic-Tac-Toe game with JavaScript, HTML, and CSS. I also threw in a small amount of jQuery to start practicing it. The game is meant to be played by two players.
 
 ***Game Images***
 
