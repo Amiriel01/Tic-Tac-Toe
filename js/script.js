@@ -73,15 +73,13 @@ function winner() {
         let rowSum = gameboard[i][0] + gameboard[i][1] + gameboard[i][2];
         let columnSum = gameboard[0][i] + gameboard[1][i] + gameboard[2][i];
         if (rowSum == 3 || columnSum == 3) {
-            message.innerText = "Player One Wins!";
+            message.innerText = "X Wins!";
             //console.log("Player One Wins!")
             return
-            
         } else if (rowSum == -3 || columnSum == -3) {
-            message.innerText = "Player Two Wins!";
+            message.innerText = "O Wins!";
             //console.log("Player Two Wins!")
             return
-           
         }
     }
     //this will check diagonals//
@@ -91,18 +89,15 @@ function winner() {
         message.innerText = "X Wins!";
         //console.log("Player One Wins!")
         return
-        
     } else if (diagonalSumOne == -3 || diagonalSumTwo == -3) {
         message.innerText = "O Wins!";
         //console.log("Player Two Wins!")
         return
-        
-        //gives "It's a Tie message on every move till there is a winner???"
-    } /*else {
+        //It is not printing tie message???"
+    } else if (([0,0] == 1 || [0,0] == -1) && ([0,1] == 1 || [0,1] == -1) && ([0,2] == 1 || [0,2] == -1) && ([1,0] == 1 || [1,0] == -1) && ([2,0] == 1 || [2,0] == -1) && ([1,1] == 1 || [1,1] == -1) && ([1,2] == 1 || [1,2] == -1) && ([2,1] == 1 || [2,1] == -1) && ([2,2] == 1 || [2,2] == -1)) {
         message.innerText = "It's a Tie!";
         return
-    }*/
-    
+    }
 }
 
 //css set .hidden//
