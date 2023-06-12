@@ -13,7 +13,6 @@ let player = 1;
 let squares = document.querySelectorAll(".square");
 let playAgain = document.querySelector("#restart");
 let message = document.querySelector("#message");
-let hidden = document.querySelector(".hidden-message");
 
 //add event listener for each square//
 //index points to a number//
@@ -77,29 +76,41 @@ function winner() {
             message.innerText = "Player One Wins!";
             //console.log("Player One Wins!")
             return
+            
         } else if (rowSum == -3 || columnSum == -3) {
             message.innerText = "Player Two Wins!";
             //console.log("Player Two Wins!")
             return
+           
         }
     }
     //this will check diagonals//
     let diagonalSumOne = gameboard[0][0] + gameboard[1][1] + gameboard[2][2];
     let diagonalSumTwo = gameboard[0][2] + gameboard[1][1] + gameboard[2][0];
     if (diagonalSumOne == 3 || diagonalSumTwo == 3) {
-        message.innerText = "Player One Wins!";
+        message.innerText = "X Wins!";
         //console.log("Player One Wins!")
         return
+        
     } else if (diagonalSumOne == -3 || diagonalSumTwo == -3) {
-        message.innerText = "Player Two Wins!";
+        message.innerText = "O Wins!";
         //console.log("Player Two Wins!")
         return
-    }
-}
-
-function toggleHidden() {
+        
+        //gives "It's a Tie message on every move till there is a winner???"
+    } /*else {
+        message.innerText = "It's a Tie!";
+        return
+    }*/
     
 }
+
+//css set .hidden//
+//hidden is toggling back and forth each time a button is clicked but never showing the message or button????//
+/*function toggleHidden() {
+    message.classList.toggle("hidden");
+    playAgain.classList.toggle("hidden");
+}*/
 
 //refreshes page to start a new game//
 //used JQuery to practice//
