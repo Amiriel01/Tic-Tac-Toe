@@ -31,6 +31,14 @@ body {
     font-weight: bold;
 }
 
+#error-message {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(178, 38, 85);
+    padding-bottom: .5rem;
+}
+
 .gameboard {
     background-color: blueviolet;
     display: grid;
@@ -67,7 +75,6 @@ body {
     height: 30rem;
     padding-bottom: 70px 0;
     color: rgb(43, 198, 226)
-    
 }
 
 #button {
