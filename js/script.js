@@ -15,17 +15,26 @@ let playAgain = document.querySelector("#restart");
 let message = document.querySelector("#message");
 let firstPage = document.querySelector(".first-page");
 let messageAndButton = document.querySelector(".message-button");
+let name1 = document.querySelector("#name1");
+let name2 = document.querySelector("#name2");
+let startGame = document.querySelector("#start-game");
+
 
 //add event listener for each square//
 //index points to a number//
 squares.forEach((square, index) => {
-    square.addEventListener("click", () => {
-        //checks to be sure the squares are working when clicked should give a dif number for each square//
-        //console.log(index);//
-        //call function to place player marker on board//
-        playerMarker(index);
+    startGame.addEventListener("click", () => {
+        square.addEventListener("click", () => {
+            //checks to be sure the squares are working when clicked should give a dif number for each square//
+            //console.log(index);//
+            //call function to place player marker on board//
+            playerMarker(index);
+        });
     });
-});
+})
+
+
+
 
 //function to place player markers on board//
 function playerMarker(index) {
@@ -46,7 +55,13 @@ function playerMarker(index) {
         //console.log(gameboard);//
         //this function calls player marker function to be written on screen//
         writeMarker();
-        if (winner() === true) {
+        let winnerResult = winner();
+        //not equals null//
+        if (winnerResult != null) {
+            //put name variable instead of "name1"/"name2"//
+            //this will replace all X's with player1 name and all O's with player2 name//
+            //.value takes the value from the form to the board//
+            message.innerText = winnerResult.replace("X", name1.value).replace("O", name2.value);
             toggleHidden();
         }
     }
@@ -77,20 +92,18 @@ function winner() {
         let rowSum = gameboard[i][0] + gameboard[i][1] + gameboard[i][2];
         let columnSum = gameboard[0][i] + gameboard[1][i] + gameboard[2][i];
         if (rowSum == 3 || columnSum == 3) {
-            message.innerText = "X Wins!";
             //console.log("Player One Wins!")
-            return true;
+            return "X Wins!";
         } else if (rowSum == -3 || columnSum == -3) {
-            message.innerText = "O Wins!";
+            return "O Wins!";
             //console.log("Player Two Wins!")
-            return true;
         }
     }
     //this will check diagonals//
     let diagonalSumOne = gameboard[0][0] + gameboard[1][1] + gameboard[2][2];
     let diagonalSumTwo = gameboard[0][2] + gameboard[1][1] + gameboard[2][0];
     let positiveSum = 0;
-    let negativeSum= 0;
+    let negativeSum = 0;
     gameboard.forEach(row => {
         row.forEach(column => {
             if (column > 0) {
@@ -103,17 +116,14 @@ function winner() {
     //console.log(positiveSum, negativeSum);
 
     if (diagonalSumOne == 3 || diagonalSumTwo == 3) {
-        message.innerText = "X Wins!";
         //console.log("Player One Wins!")
-        return true;
+        return "X Wins!";
     } else if (diagonalSumOne == -3 || diagonalSumTwo == -3) {
-        message.innerText = "O Wins!";
         //console.log("Player Two Wins!")
-        return true;
+        return "O Wins!";
         //It is not printing tie message???"
     } else if (positiveSum === 5 && negativeSum === 4) {
-        message.innerText = "It's a Tie!";
-        return true;
+        return "It's a Tie!";
     }
 }
 
