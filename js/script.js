@@ -24,9 +24,14 @@ let startGame = document.querySelector("#start-game");
 //index points to a number//
 squares.forEach((square, index) => {
     //startGame event listener makes the board unplayable before the start game button is clicked//
-    startGame.addEventListener("click", () => {
-        if (name1 || name2 === false);
-         return document.getElementById("error-message").innerHTML = "**Error: Must Enter Player Names**";
+   /* startGame.addEventListener("click", () => {
+        if (name1.value ||name2.value == false) {
+            document.getElementById("error-message").innerText = "**Error: Must Enter Player Names! Reload Page and Try Again!**"
+            {
+                return false;
+            }
+            return true;
+        }*/
         square.addEventListener("click", () => {
             //checks to be sure the squares are working when clicked should give a dif number for each square//
             //console.log(index);//
@@ -34,7 +39,7 @@ squares.forEach((square, index) => {
             playerMarker(index);
         });
     });
-})
+//})
 
 //function to place player markers on board//
 function playerMarker(index) {
